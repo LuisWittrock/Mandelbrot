@@ -135,7 +135,7 @@ class Mandelbrot : Frame
                     {
                         vertex.color = Color::Black;
                     }
-                    else vertex.color = Color(escape%255,escape%255,escape%255);
+                    else vertex.color = Color(escape%255,escape%255,100);
 
                     varray.append(vertex);
                 }
