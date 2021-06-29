@@ -11,15 +11,15 @@ class Frame
     public:
         RenderWindow window;
         Event event;
-        int WINDOW_HEIGHT = 300;
-        int WINDOW_WIDTH = 300;
+        int WINDOW_HEIGHT = 500;
+        int WINDOW_WIDTH = 500;
 };
 
 class Mandelbrot : Frame
 {
     public:
         VertexArray varray;
-        int maxEscape = 1000;
+        int maxEscape = 500;
 
         float graphXMax = 2; //2
         float graphXMin = -0.5; //-0.5
@@ -70,51 +70,42 @@ class Mandelbrot : Frame
                     graphYMin = -1;
                     break;
                 }
-                if(Keyboard::isKeyPressed(Keyboard::Down))
-                {
-
-                    graphXMax += 0.1;
-                    graphXMin -= 0.1*0.25;
-                    graphYMax += 0.05;
-                    graphYMin -= 0.05;
-                    break;
-                }
                 if(Keyboard::isKeyPressed(Keyboard::Up))
                 {
 
-                    graphXMax -= 0.1;
-                    graphXMin += 0.1*0.25;
-                    graphYMax -= 0.05;
-                    graphYMin += 0.05;
+                    graphXMax -= 0.1*(graphXMax-graphXMin);
+                    graphXMin += 0.1*0.25*(graphXMax-graphXMin);
+                    graphYMax -= 0.05*(graphYMax-graphYMin);
+                    graphYMin += 0.05*(graphYMax-graphYMin);
                     break;
                 }
                 if(Keyboard::isKeyPressed(Keyboard::D))
                 {
 
-                    graphXMax += 0.05;
-                    graphXMin += 0.05;
+                    graphXMax += 0.05*(graphXMax-graphXMin);
+                    graphXMin += 0.05*(graphXMax-graphXMin);
                     break;
                 }
                     
                 if(Keyboard::isKeyPressed(Keyboard::A))
                 {
 
-                    graphXMax -= 0.05;
-                    graphXMin -= 0.05;
+                    graphXMax -= 0.05*(graphXMax-graphXMin);
+                    graphXMin -= 0.05*(graphXMax-graphXMin);
                     break;
                 }
                 if(Keyboard::isKeyPressed(Keyboard::S))
                 {
 
-                    graphYMax += 0.05;
-                    graphYMin += 0.05;
+                    graphYMax += 0.05*(graphYMax-graphYMin);
+                    graphYMin += 0.05*(graphYMax-graphYMin);
                     break;
                 }
                 if(Keyboard::isKeyPressed(Keyboard::W))
                 {
 
-                    graphYMax -= 0.05;
-                    graphYMin -= 0.05;
+                    graphYMax -= 0.05*(graphYMax-graphYMin);
+                    graphYMin -= 0.05*(graphYMax-graphYMin);
                     break;
                 } 
             }

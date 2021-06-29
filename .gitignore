@@ -30,7 +30,7 @@
 *.exe
 *.out
 *.app
-mandelbrot
+Mandelbrot
 
 #folders
 /lib
