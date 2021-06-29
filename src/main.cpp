@@ -72,7 +72,7 @@ class Mandelbrot : Frame
                 }
                 if(Keyboard::isKeyPressed(Keyboard::Down))
                 {
-                    cout << "up \n";
+
                     graphXMax += 0.1;
                     graphXMin -= 0.1*0.25;
                     graphYMax += 0.05;
@@ -81,7 +81,7 @@ class Mandelbrot : Frame
                 }
                 if(Keyboard::isKeyPressed(Keyboard::Up))
                 {
-                    cout << "down \n";
+
                     graphXMax -= 0.1;
                     graphXMin += 0.1*0.25;
                     graphYMax -= 0.05;
@@ -90,7 +90,7 @@ class Mandelbrot : Frame
                 }
                 if(Keyboard::isKeyPressed(Keyboard::D))
                 {
-                    cout << "up \n";
+
                     graphXMax += 0.05;
                     graphXMin += 0.05;
                     break;
@@ -98,21 +98,21 @@ class Mandelbrot : Frame
                     
                 if(Keyboard::isKeyPressed(Keyboard::A))
                 {
-                    cout << "down \n";
+
                     graphXMax -= 0.05;
                     graphXMin -= 0.05;
                     break;
                 }
                 if(Keyboard::isKeyPressed(Keyboard::S))
                 {
-                    cout << "Right \n";
+
                     graphYMax += 0.05;
                     graphYMin += 0.05;
                     break;
                 }
                 if(Keyboard::isKeyPressed(Keyboard::W))
                 {
-                    cout << "Left \n";
+
                     graphYMax -= 0.05;
                     graphYMin -= 0.05;
                     break;
