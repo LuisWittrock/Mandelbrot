@@ -11,15 +11,15 @@ class Frame
     public:
         RenderWindow window;
         Event event;
-        int WINDOW_HEIGHT = 1000;
-        int WINDOW_WIDTH = 1000;
+        int WINDOW_HEIGHT = 300;
+        int WINDOW_WIDTH = 300;
 };
 
 class Mandelbrot : Frame
 {
     public:
         VertexArray varray;
-        int maxEscape = 200;
+        int maxEscape = 1000;
 
         float graphXMax = 2; //2
         float graphXMin = -0.5; //-0.5
@@ -58,8 +58,68 @@ class Mandelbrot : Frame
             return currEscape; //if we we dont head towards infinity we can say that for our cycle the number remains stable and color it black
         }
 
-        void checkInputs()
+        void checkInputs() //zoom into the mandelbrot
         {
+            while(1)
+            {
+                if(Keyboard::isKeyPressed(Keyboard::Space))
+                {
+                    graphXMax = 2;
+                    graphXMin = -0.5;
+                    graphYMax = 1;
+                    graphYMin = -1;
+                    break;
+                }
+                if(Keyboard::isKeyPressed(Keyboard::Down))
+                {
+                    cout << "up \n";
+                    graphXMax += 0.1;
+                    graphXMin -= 0.1*0.25;
+                    graphYMax += 0.05;
+                    graphYMin -= 0.05;
+                    break;
+                }
+                if(Keyboard::isKeyPressed(Keyboard::Up))
+                {
+                    cout << "down \n";
+                    graphXMax -= 0.1;
+                    graphXMin += 0.1*0.25;
+                    graphYMax -= 0.05;
+                    graphYMin += 0.05;
+                    break;
+                }
+                if(Keyboard::isKeyPressed(Keyboard::D))
+                {
+                    cout << "up \n";
+                    graphXMax += 0.05;
+                    graphXMin += 0.05;
+                    break;
+                }
+                    
+                if(Keyboard::isKeyPressed(Keyboard::A))
+                {
+                    cout << "down \n";
+                    graphXMax -= 0.05;
+                    graphXMin -= 0.05;
+                    break;
+                }
+                if(Keyboard::isKeyPressed(Keyboard::S))
+                {
+                    cout << "Right \n";
+                    graphYMax += 0.05;
+                    graphYMin += 0.05;
+                    break;
+                }
+                if(Keyboard::isKeyPressed(Keyboard::W))
+                {
+                    cout << "Left \n";
+                    graphYMax -= 0.05;
+                    graphYMin -= 0.05;
+                    break;
+                } 
+            }
+            
+                
             
         }
 
@@ -94,16 +154,19 @@ class Mandelbrot : Frame
         void drawMandelbrot()
         {
             window.create(VideoMode(WINDOW_HEIGHT, WINDOW_WIDTH), "Mandelbrot");
-            calcMandelbrot(WINDOW_WIDTH, WINDOW_HEIGHT);
+            
             while(window.isOpen())
             {
+                calcMandelbrot(WINDOW_WIDTH, WINDOW_HEIGHT);
                 while(window.pollEvent(event))
                 {
                     if(event.type == sf::Event::Closed) window.close();
                 }
+                
                 window.clear();
                 window.draw(varray);
                 window.display();
+                checkInputs();
             }
         }
 
