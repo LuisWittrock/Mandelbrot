@@ -30,3 +30,9 @@
 *.exe
 *.out
 *.app
+mandelbrot
+
+#folders
+/lib
+/include
+
