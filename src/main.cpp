@@ -136,16 +136,11 @@ class Mandelbrot : Frame
                     {
                         vertex.color = Color::Black;
                     }
-<<<<<<< HEAD
-                    else vertex.color = Color(escape%255,escape%255,100);
-=======
                     else
                     {
                         vertex.color = Color(colors[escape%13][0],colors[escape%16][1],colors[escape%16][2]);
                     }
                     
->>>>>>> feature
-
                     varray.append(vertex);
                 }
             }
