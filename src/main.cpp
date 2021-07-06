@@ -82,30 +82,30 @@ class Mandelbrot : Frame
                 if(Keyboard::isKeyPressed(Keyboard::D))
                 {
 
-                    graphXMax += 0.05*(graphXMax-graphXMin);
-                    graphXMin += 0.05*(graphXMax-graphXMin);
+                    graphXMax += 0.05;
+                    graphXMin += 0.05;
                     break;
                 }
                     
                 if(Keyboard::isKeyPressed(Keyboard::A))
                 {
 
-                    graphXMax -= 0.05*(graphXMax-graphXMin);
-                    graphXMin -= 0.05*(graphXMax-graphXMin);
+                    graphXMax -= 0.05;
+                    graphXMin -= 0.05;
                     break;
                 }
                 if(Keyboard::isKeyPressed(Keyboard::S))
                 {
 
-                    graphYMax += 0.05*(graphYMax-graphYMin);
-                    graphYMin += 0.05*(graphYMax-graphYMin);
+                    graphYMax += 0.05;
+                    graphYMin += 0.05;
                     break;
                 }
                 if(Keyboard::isKeyPressed(Keyboard::W))
                 {
 
-                    graphYMax -= 0.05*(graphYMax-graphYMin);
-                    graphYMin -= 0.05*(graphYMax-graphYMin);
+                    graphYMax -= 0.05;
+                    graphYMin -= 0.05;
                     break;
                 } 
             }
