@@ -116,6 +116,7 @@ class Mandelbrot : Frame
 
         void calcMandelbrot(int horizontal, int vertical)
         {
+            int colors[16][3] = {{66,30,15},{25,7,26},{9,1,47},{4,4,73},{0,7,100},{57,125,209},{134,181,229},{211,236,248},{248,201,95},{255,170,0},{204,128,0},{153,87,0},{106,52,4}};
             varray.clear();
             float graphX;
             float graphY;
@@ -135,7 +136,11 @@ class Mandelbrot : Frame
                     {
                         vertex.color = Color::Black;
                     }
-                    else vertex.color = Color(escape%255,escape%255,escape%255);
+                    else
+                    {
+                        vertex.color = Color(colors[escape%13][0],colors[escape%16][1],colors[escape%16][2]);
+                    }
+                    
 
                     varray.append(vertex);
                 }
